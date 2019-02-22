@@ -1,0 +1,32 @@
+<ion-header>   
+   
+      <ion-navbar>
+          <ion-title>
+              Motoristas
+            </ion-title> 
+            <button ion-button menuToggle right>
+                <ion-icon name="menu"></ion-icon>
+              </button>   
+      </ion-navbar>
+      
+         
+    
+      <ion-searchbar placeholder="Pesquisar">
+        </ion-searchbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-list>
+  <ion-item *ngFor="let moto of motorista">
+    <ion-avatar item-start>
+      <!-- <img src="../../assets/imgs/logo.png"> -->
+      <ion-icon ios="ios-person" md="md-person"></ion-icon>
+    </ion-avatar>
+    <h2>{{moto.nome + ' ' + moto.sobrenome}}</h2>
+    <p>{{moto.bairro}}</p>
+  </ion-item>  
+</ion-list>
+
+</ion-content>

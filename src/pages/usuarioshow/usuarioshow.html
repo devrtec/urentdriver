@@ -1,0 +1,133 @@
+<ion-header>
+  <ion-navbar> <ion-title>Registro de Conta</ion-title> </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-segment [(ngModel)]="step" color="dark">
+    <ion-segment-button value="part1"> Identificação </ion-segment-button>
+    <ion-segment-button value="part2"> Endereço </ion-segment-button>
+  </ion-segment>
+  <form [formGroup]="formTable" (ngSubmit)="formSubmit()">
+    <div [ngSwitch]="step">
+      <ion-grid *ngSwitchCase="'part1'">
+        <ion-row>
+          <ion-col no-padding text-center>
+            <ion-item>
+              <ion-input
+                formControlName="celular"
+                type="tel"
+                placeholder="Nº Celular"   
+                pattern="tel"  
+                inputmode="tel" 
+                mask="(00) 00000-0000"                           
+              ></ion-input>        
+            </ion-item>
+            <ion-label color="danger" *ngIf="formTable.get('celular').invalid && (formTable.get('celular').dirty || formTable.get('celular').touched)">Nº Celular inválido</ion-label>   
+            <ion-label color="danger" *ngIf="formTable.get('celular').hasError('validNum') && (formTable.get('celular').dirty || formTable.get('celular').touched)">Permitido 123 ou 456</ion-label>                                     
+              <ion-item>
+              <ion-input
+                formControlName="email"
+                type="email"
+                placeholder="E-mail"
+              ></ion-input>
+            </ion-item>         
+
+            <ion-item>
+              <ion-input
+                formControlName="nome"
+                type="text"
+                placeholder="Nome"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="sobrenome"
+                type="text"
+                placeholder="Sobrenome"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="senha"
+                type="password"
+                placeholder="Senha"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="confirmarsenha"
+                type="password"
+                placeholder="Confirmar senha"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngSwitchCase="'part2'">
+        <ion-row>
+          <ion-col no-padding text-center>
+            <ion-item>
+              <ion-input
+                maxlength="9"
+                formControlName="cep"
+                type="text"
+                placeholder="CEP"
+                (ionChange)='cepOnChange($event)'  
+                mask="00000-000"             
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input
+                readonly
+                formControlName="logradouro"
+                type="text"
+                placeholder="Rua/Avenida"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input               
+                formControlName="numero"
+                type="number"
+                placeholder="Número"                 
+              ></ion-input>        
+            </ion-item>
+            <ion-item>
+              <ion-input
+                formControlName="complemento"
+                type="text"
+                placeholder="Complemento"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input    
+                readonly              
+                formControlName="bairro"
+                type="text"
+                placeholder="Bairro"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  
+                readonly                       
+                formControlName="estado"
+                type="text"
+                placeholder="Estado"
+              ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input 
+                readonly
+                formControlName="municipio"
+                type="text"
+                placeholder="Município"
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <button ion-button type="submit" block color="dark" [disabled]="!formTable.valid">Confirmar</button>
+  </form>
+</ion-content>

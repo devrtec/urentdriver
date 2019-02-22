@@ -1,0 +1,7 @@
+{
+  "name": "urentdriver",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

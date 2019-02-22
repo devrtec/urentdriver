@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Selecione um estado</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let est of estadoList" (click)="selectedEstadobtnOnClick(est)">         
+          <h2>{{est.nome + ', ' + est.sigla}}</h2>        
+        </ion-item>  
+      </ion-list>
+
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title> Filtro de Pesquisa </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item> Motoristas residentes em: </ion-item>
+
+  <ion-card>
+    <ion-item (click)="openPageEstadoSelectedbtnOnClick()">
+      <ion-icon name="search" color="dark" item-left></ion-icon>
+      <span>{{ estado }}</span>
+    </ion-item>
+
+    <ion-item (click)="openPageMunicipioSelectedbtnOnClick()">
+      <ion-icon name="search" color="dark" item-left></ion-icon>
+      <span>{{ municipio }}</span>
+    </ion-item>
+  </ion-card>
+
+  <button
+    (click)="openPageMotoristaViewbtnOnClick()"
+    ion-button
+    icon-start
+    block
+    round
+    no-margin
+    tappable
+    color="dark"
+  >
+    <ion-icon></ion-icon> Pesquisar
+  </button>
+</ion-content>
+
+<btn-registrar [page]="page"></btn-registrar>

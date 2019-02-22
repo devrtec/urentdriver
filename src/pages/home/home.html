@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title> URD - URentDriver </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <br />
+  <br />
+  <ion-card>
+    <ion-card-header text-align>
+      Sou <strong>Motorista</strong>,
+    </ion-card-header>
+
+    <ion-card-content>
+      <button (click)="VeiculobtnOnClick()" ion-button color="light" round full>
+        Quero alugar <br />
+        um carro! <br />
+        <ion-icon
+          color="dark"
+          ios="ios-arrow-dropright-circle"
+          md="md-arrow-dropright-circle"
+        ></ion-icon>
+      </button>
+    </ion-card-content>
+  </ion-card>
+  <br />
+  <ion-card>
+    <ion-card-header> Sou <strong>Locador</strong>, </ion-card-header>
+
+    <ion-card-content>
+      <button
+        (click)="MotoristaSearchbtnOnClick()"
+        ion-button
+        color="light"
+        round
+        full
+      >
+        Quero um motorista <br />
+        para o meu carro! <br />
+        <ion-icon
+          color="dark"
+          ios="ios-arrow-dropright-circle"
+          md="md-arrow-dropright-circle"
+        ></ion-icon>
+      </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
