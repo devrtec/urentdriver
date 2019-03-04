@@ -1,5 +1,7 @@
 <ion-header>
-  <ion-navbar> <ion-title>Registro de Conta</ion-title> </ion-navbar>
+  <ion-navbar>
+    <ion-title>Registro de Conta</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
@@ -13,53 +15,42 @@
         <ion-row>
           <ion-col no-padding text-center>
             <ion-item>
-              <ion-input
-                formControlName="celular"
-                type="tel"
-                placeholder="Nº Celular"   
-                pattern="tel"  
-                inputmode="tel" 
-                mask="(00) 00000-0000"                           
-              ></ion-input>        
+              <ion-input formControlName="celular" type="tel" placeholder="Nº Celular" mask="(00) 00000-0000">
+              </ion-input>
             </ion-item>
-            <ion-label color="danger" *ngIf="formTable.get('celular').invalid && (formTable.get('celular').dirty || formTable.get('celular').touched)">Nº Celular inválido</ion-label>   
-            <ion-label color="danger" *ngIf="formTable.get('celular').hasError('validNum') && (formTable.get('celular').dirty || formTable.get('celular').touched)">Permitido 123 ou 456</ion-label>                                     
-              <ion-item>
-              <ion-input
-                formControlName="email"
-                type="email"
-                placeholder="E-mail"
-              ></ion-input>
-            </ion-item>         
-
+            <ion-label color="danger"
+              *ngIf="formTable.get('celular').invalid && (formTable.get('celular').dirty || formTable.get('celular').touched)">
+              Nº Celular inválido</ion-label>
             <ion-item>
-              <ion-input
-                formControlName="nome"
-                type="text"
-                placeholder="Nome"
-              ></ion-input>
+              <ion-input formControlName="email" type="email" placeholder="E-mail"></ion-input>
             </ion-item>
+            <ion-label color="danger"
+              *ngIf="formTable.get('email').invalid && (formTable.get('email').dirty || formTable.get('email').touched)">
+              E-mail inválido</ion-label>
             <ion-item>
-              <ion-input
-                formControlName="sobrenome"
-                type="text"
-                placeholder="Sobrenome"
-              ></ion-input>
+              <ion-input formControlName="nome" type="text" placeholder="Nome"></ion-input>
             </ion-item>
+            <ion-label color="danger"
+              *ngIf="formTable.get('nome').invalid && (formTable.get('nome').dirty || formTable.get('nome').touched)">
+              Nome inválido</ion-label>
             <ion-item>
-              <ion-input
-                formControlName="senha"
-                type="password"
-                placeholder="Senha"
-              ></ion-input>
+              <ion-input formControlName="sobrenome" type="text" placeholder="Sobrenome"></ion-input>
             </ion-item>
+            <ion-label color="danger"
+              *ngIf="formTable.get('sobrenome').invalid && (formTable.get('sobrenome').dirty || formTable.get('sobrenome').touched)">
+              Sobrenome inválido</ion-label>
             <ion-item>
-              <ion-input
-                formControlName="confirmarsenha"
-                type="password"
-                placeholder="Confirmar senha"
-              ></ion-input>
+              <ion-input formControlName="senha" type="password" placeholder="Senha"></ion-input>
             </ion-item>
+            <ion-label color="danger"
+              *ngIf="formTable.get('senha').invalid && (formTable.get('senha').dirty || formTable.get('senha').touched)">
+              Senha inválida</ion-label>
+            <ion-item>
+              <ion-input formControlName="confirmarsenha" type="password" placeholder="Confirmar senha"></ion-input>
+            </ion-item>
+            <ion-label color="danger"
+              *ngIf="formTable.get('confirmarsenha').invalid && (formTable.get('confirmarsenha').dirty || formTable.get('confirmarsenha').touched)">
+              Senha inválida</ion-label>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -68,60 +59,32 @@
         <ion-row>
           <ion-col no-padding text-center>
             <ion-item>
-              <ion-input
-                maxlength="9"
-                formControlName="cep"
-                type="text"
-                placeholder="CEP"
-                (ionChange)='cepOnChange($event)'  
-                mask="00000-000"             
-              ></ion-input>
+              <ion-input formControlName="cep" type="text" placeholder="CEP" (ionChange)='cepOnChange($event)'
+                mask="00000-000"></ion-input>
+            </ion-item>
+            <ion-label color="danger"
+              *ngIf="formTable.get('cep').invalid && (formTable.get('cep').dirty || formTable.get('cep').touched)">
+              CEP inválido</ion-label>
+            <ion-item>
+              <ion-input readonly formControlName="logradouro" type="text" placeholder="Rua/Avenida"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input
-                readonly
-                formControlName="logradouro"
-                type="text"
-                placeholder="Rua/Avenida"
-              ></ion-input>
+              <ion-input formControlName="numero" type="number" placeholder="Número"></ion-input>
+            </ion-item>
+            <ion-label color="danger"
+              *ngIf="formTable.get('numero').invalid && (formTable.get('numero').dirty || formTable.get('numero').touched)">
+              Número inválido</ion-label>
+            <ion-item>
+              <ion-input formControlName="complemento" type="text" placeholder="Complemento"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input               
-                formControlName="numero"
-                type="number"
-                placeholder="Número"                 
-              ></ion-input>        
+              <ion-input readonly formControlName="bairro" type="text" placeholder="Bairro"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input
-                formControlName="complemento"
-                type="text"
-                placeholder="Complemento"
-              ></ion-input>
+              <ion-input readonly formControlName="estado" type="text" placeholder="Estado"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input    
-                readonly              
-                formControlName="bairro"
-                type="text"
-                placeholder="Bairro"
-              ></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input  
-                readonly                       
-                formControlName="estado"
-                type="text"
-                placeholder="Estado"
-              ></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input 
-                readonly
-                formControlName="municipio"
-                type="text"
-                placeholder="Município"
-              ></ion-input>
+              <ion-input readonly formControlName="municipio" type="text" placeholder="Município"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
