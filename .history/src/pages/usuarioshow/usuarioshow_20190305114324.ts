@@ -21,7 +21,7 @@ export class UsuarioshowPage {
       Validators.maxLength(15)
     ]),
     email: new FormControl(null, [
-      Validators.required,
+      //Validators.required,
       //Validators.email,
       UsuariovalidLibrary.isEmail
     ]),

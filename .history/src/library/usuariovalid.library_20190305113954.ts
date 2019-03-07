@@ -9,10 +9,11 @@ export class UsuariovalidLibrary {
 
       if (!result) {
         console.log("fail");
-        resolve({dirty: true});        
+        resolve({'isEmail': true});
+
       } else {
         console.log("ok");
-        resolve({dirty: false});        
+        resolve(null);
        
       }
       console.log(control);

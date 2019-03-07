@@ -1,4 +1,5 @@
 import { FormControl } from '@angular/forms';
+import { INVALID, VALID } from '@angular/forms/src/model';
 
 export class UsuariovalidLibrary {
 
@@ -9,10 +10,11 @@ export class UsuariovalidLibrary {
 
       if (!result) {
         console.log("fail");
-        resolve({dirty: true});        
+        resolve({"status": "INVALID"});
+
       } else {
         console.log("ok");
-        resolve({dirty: false});        
+        resolve({"status": "VALID"});
        
       }
       console.log(control);

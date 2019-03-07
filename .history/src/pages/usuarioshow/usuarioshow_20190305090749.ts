@@ -22,7 +22,7 @@ export class UsuarioshowPage {
     ]),
     email: new FormControl(null, [
       Validators.required,
-      //Validators.email,
+      Validators.email,
       UsuariovalidLibrary.isEmail
     ]),
     nome: new FormControl(null, [

@@ -9,10 +9,11 @@ export class UsuariovalidLibrary {
 
       if (!result) {
         console.log("fail");
-        resolve({dirty: true});        
+        resolve({"invalid": true});
+
       } else {
         console.log("ok");
-        resolve({dirty: false});        
+        resolve({"invalid": false});
        
       }
       console.log(control);

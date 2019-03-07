@@ -9,13 +9,13 @@ export class UsuariovalidLibrary {
 
       if (!result) {
         console.log("fail");
-        resolve({dirty: true});        
+        resolve({"isEmail:invalid": true});
+
       } else {
         console.log("ok");
-        resolve({dirty: false});        
+        resolve({"isEmail:invalid": false});
        
       }
-      console.log(control);
     });
   }
 }

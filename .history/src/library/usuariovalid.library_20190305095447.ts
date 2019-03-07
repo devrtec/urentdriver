@@ -8,14 +8,13 @@ export class UsuariovalidLibrary {
       let result = re.test(control.value);
 
       if (!result) {
-        console.log("fail");
-        resolve({dirty: true});        
+        resolve({
+          "email": true
+        });
+
       } else {
-        console.log("ok");
-        resolve({dirty: false});        
-       
+        resolve(null);
       }
-      console.log(control);
     });
   }
 }

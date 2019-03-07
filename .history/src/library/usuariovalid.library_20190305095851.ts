@@ -8,14 +8,15 @@ export class UsuariovalidLibrary {
       let result = re.test(control.value);
 
       if (!result) {
-        console.log("fail");
-        resolve({dirty: true});        
-      } else {
         console.log("ok");
-        resolve({dirty: false});        
-       
+        resolve({
+          "email:validation": true
+        });
+
+      } else {
+        console.log("fail");
+        resolve(null);
       }
-      console.log(control);
     });
   }
 }

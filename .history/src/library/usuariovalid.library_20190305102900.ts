@@ -9,13 +9,12 @@ export class UsuariovalidLibrary {
 
       if (!result) {
         console.log("fail");
-        resolve({dirty: true});        
+        resolve({error: true});
+
       } else {
         console.log("ok");
-        resolve({dirty: false});        
-       
+        resolve(null);
       }
-      console.log(control);
     });
   }
 }
