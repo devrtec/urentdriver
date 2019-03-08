@@ -23,7 +23,7 @@ export class UsuarioshowPage {
     email: new FormControl(null, [
       Validators.required,
       //Validators.email,
-      UsuariovalidLibrary.isEmail
+      UsuariovalidLibrary.isEmail2
     ]),
     nome: new FormControl(null, [
       Validators.required,
@@ -86,7 +86,9 @@ export class UsuarioshowPage {
     private viaCEPService: ViaCEPService
   ) { }
 
-  formSubmit() { }
+  formSubmit() { 
+    console.log(this.formTable.get('email').hasError['isEmail2']);
+  }
 
   ionViewWillEnter() { }
 
