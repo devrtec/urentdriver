@@ -21,9 +21,8 @@ export class UsuarioshowPage {
       Validators.maxLength(15)
     ]),
     email: new FormControl(null, [
-      Validators.required,
-      //Validators.email,
-      UsuariovalidLibrary.isEmail2
+      Validators.required,    
+      UsuariovalidLibrary.isEmail
     ]),
     nome: new FormControl(null, [
       Validators.required,
@@ -87,7 +86,7 @@ export class UsuarioshowPage {
   ) { }
 
   formSubmit() { 
-    console.log(this.formTable.get('email').hasError['isEmail2']);
+    //console.log(this.formTable.get('email').hasError('isvalid'));
   }
 
   ionViewWillEnter() { }
