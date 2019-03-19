@@ -3,11 +3,13 @@ import { NavController, NavParams } from "ionic-angular";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuariovalidLibrary } from "../../library/usuariovalid.library";
 import { ViaCEPService } from "../../services/viacep.service";
+import { Usuario } from '../../models/usuario.model'
+import { UsuarioService } from '../../services/usuario.service'
 
 @Component({
   selector: "page-usuarioshow",
   templateUrl: "usuarioshow.html",
-  providers: [UsuariovalidLibrary]
+  providers: [UsuariovalidLibrary, UsuarioService]
 })
 export class UsuarioshowPage {
 
@@ -82,8 +84,17 @@ export class UsuarioshowPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private viaCEPService: ViaCEPService
-  ) { }
+    private viaCEPService: ViaCEPService,
+    private usuarioService: UsuarioService,
+  ) { 
+
+    this.usuarioService.SelectUsuariosAll()
+    .then((usuario: Usuario[]) => { 
+     
+      console.log(usuario);
+    
+    })  
+  }
 
   formSubmit() { 
     //console.log(this.formTable.get('email').hasError('isvalid'));

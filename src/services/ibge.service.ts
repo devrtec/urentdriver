@@ -1,6 +1,6 @@
 import { Http, Response } from "@angular/http";
 import { Injectable } from "@angular/core";
-import { URL_API } from "../apis/api";
+import { URI } from "../apis/api";
 
 import "rxjs/add/operator/toPromise";
 
@@ -10,14 +10,14 @@ export class IBGEService {
 
   public GetEstados(): Promise<any[]> {
     return this.http
-      .get(`${URL_API}/estados`)
+      .get(`${URI.ibge}/estados`)
       .toPromise()
       .then((resp: Response) => resp.json());
   }
 
   public GetMunicipios(id: string): Promise<any[]> {
     return this.http
-      .get(`${URL_API}/estados/${id}/municipios`)
+      .get(`${URI.ibge}/estados/${id}/municipios`)
       .toPromise()
       .then((resp: Response) => resp.json());
   }

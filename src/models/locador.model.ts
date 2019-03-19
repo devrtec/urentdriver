@@ -1,7 +1,7 @@
 export class Locador {
   constructor(
-    public id: number,
-    public id_user: number,
+    public _id: string,
+    public id_user: string,
     public pessoatipo: string,
     public cpfcnpj: string,
     public empresa: string,  

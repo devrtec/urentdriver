@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs/Observable'
 
 import { Usuario } from '../models/usuario.model'
-import { URL_API } from '../apis/api'
+import { URI } from '../apis/api'
 
 import 'rxjs/add/operator/toPromise'
 import 'rxjs/add/operator/map'
@@ -14,13 +14,13 @@ export class UsuarioService {
     constructor(private http: Http){}
     
     public SelectUsuariosAll(): Promise<Usuario[]> {              
-        return this.http.get(`${URL_API}/usuarios`)
+        return this.http.get(`${URI.app}/usuarios`)
             .toPromise()
             .then((resp: Response) => resp.json())             
     }  
 
     public SelectUsuarioByCel(cel: string): Promise<Usuario[]> {              
-        return this.http.get(`${URL_API}/usuarios?cel=${cel}`)
+        return this.http.get(`${URI.app}/usuarios?cel=${cel}`)
             .toPromise()
             .then((resp: Response) => resp.json())             
     }  
@@ -29,7 +29,7 @@ export class UsuarioService {
         let headers: Headers = new Headers()
         headers.append('Content-type', 'application/json')
         return this.http.post(
-            `${URL_API}/usuarios`,
+            `${URI.app}/usuarios`,
             JSON.stringify(usuario),
             new RequestOptions({ headers: headers })
         )
@@ -40,7 +40,7 @@ export class UsuarioService {
         let headers: Headers = new Headers()
         headers.append('Content-type', 'application/json')
         return this.http.put(
-            `${URL_API}/usuarios/${usuario.id}`,
+            `${URI.app}/usuarios/${usuario._id}`,
             JSON.stringify(usuario),
             new RequestOptions({ headers: headers })
         )

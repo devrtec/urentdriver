@@ -1,7 +1,7 @@
 export class LocadorXVeiculo {
   constructor(
-    public id: number,
-    public id_locador: number,
-    public id_veiculo: number
+    public _id: string,
+    public id_locador: string,
+    public id_veiculo: string
   ) {}
 }

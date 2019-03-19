@@ -1,14 +1,14 @@
 export class Locacao {
   constructor(
-    public id: number,
-    public id_locador: number,
-    public id_veiculo: number,
-    public id_moto: number,
+    public _id: string,
+    public id_locador: string,
+    public id_veiculo: string,
+    public id_moto: string,
     public data_ins: string,
     public data_ini: string,
     public data_fin: string,
     public notap_locador: number,
     public notap_moto: number,   
-    public status_id: number
+    public status_fo: string
   ) {}
 }

@@ -1,6 +1,6 @@
 export class Usuario {
   constructor(
-    public id: number,
+    public _id: string,
     public nome: string,
     public sobrenome: string,
     public email: string,
@@ -11,6 +11,8 @@ export class Usuario {
     public bairro: string,
     public estado: string,
     public municipio: string,
-    public status_id: number
+    public status_fo: string,
+    public ins_date: Date, 
+    public upd_date: Date 
   ) {}
 }
