@@ -25,7 +25,7 @@ export class UsuarioService {
             .then((resp: Response) => resp.json())             
     }  
 
-    public CreateUsuario(usuario: Usuario): Observable<number> {
+    public CreateUsuario(usuario: Usuario): Observable<any> {
         let headers: Headers = new Headers()
         headers.append('Content-type', 'application/json')
         return this.http.post(
@@ -33,7 +33,7 @@ export class UsuarioService {
             JSON.stringify(usuario),
             new RequestOptions({ headers: headers })
         )
-        .map((resposta: Response) => resposta.json().id)
+        .map((resp: Response) => resp.json())       
     }   
    
     public UpdateUsuario(usuario: Usuario): Observable<number> {       
@@ -44,6 +44,6 @@ export class UsuarioService {
             JSON.stringify(usuario),
             new RequestOptions({ headers: headers })
         )
-        .map((resposta: Response) => resposta.json().id)       
+        .map((resp: Response) => resp.json().id)       
     }   
 }

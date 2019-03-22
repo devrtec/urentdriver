@@ -15,11 +15,11 @@
         <ion-row>
           <ion-col no-padding text-center>
             <ion-item>
-              <ion-input formControlName="celular" type="tel" placeholder="Nº Celular" mask="(00) 00000-0000">
+              <ion-input formControlName="cel" type="tel" placeholder="Nº Celular" mask="(00) 00000-0000">
               </ion-input>
             </ion-item>
             <ion-label color="danger"
-              *ngIf="formTable.get('celular').invalid && (formTable.get('celular').dirty && formTable.get('celular').errors)">
+              *ngIf="formTable.get('cel').invalid && (formTable.get('cel').dirty && formTable.get('cel').errors)">
               Nº Celular inválido</ion-label>
             <ion-item>
               <ion-input formControlName="email" type="email" placeholder="E-mail"></ion-input>

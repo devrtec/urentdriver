@@ -13,6 +13,7 @@ export class Usuario {
     public municipio: string,
     public status_fo: string,
     public ins_date: Date, 
-    public upd_date: Date 
+    public upd_date: Date,
+    public __v: number 
   ) {}
 }

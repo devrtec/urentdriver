@@ -17,7 +17,7 @@ export class UsuarioshowPage {
   public enderecoCEP: any;
 
   public formTable: FormGroup = new FormGroup({
-    celular: new FormControl(null, [
+    cel: new FormControl(null, [
       Validators.required,
       Validators.minLength(15),
       Validators.maxLength(15)
@@ -86,18 +86,30 @@ export class UsuarioshowPage {
     public navParams: NavParams,
     private viaCEPService: ViaCEPService,
     private usuarioService: UsuarioService,
-  ) { 
+  ) { }
 
-    this.usuarioService.SelectUsuariosAll()
-    .then((usuario: Usuario[]) => { 
-     
-      console.log(usuario);
-    
-    })  
-  }
-
-  formSubmit() { 
-    //console.log(this.formTable.get('email').hasError('isvalid'));
+  formSubmit() {   
+    let usuario: Usuario = new Usuario(
+      null,
+      this.formTable.value.nome,
+      this.formTable.value.sobrenome,
+      this.formTable.value.email,
+      this.formTable.value.senha,
+      this.formTable.value.cel,
+      this.formTable.value.cep,
+      this.formTable.value.logradouro,
+      this.formTable.value.bairro,
+      this.formTable.value.estado,
+      this.formTable.value.municipio,
+      null,
+      null,
+      null,
+      null
+    )   
+    this.usuarioService.CreateUsuario(usuario)
+      .subscribe((_id) => {
+       console.log(_id);
+      })
   }
 
   ionViewWillEnter() { }
