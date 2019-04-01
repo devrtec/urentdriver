@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams } from "ionic-angular";
+import { NavController, NavParams, LoadingController, AlertController } from "ionic-angular";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuariovalidLibrary } from "../../library/usuariovalid.library";
 import { ViaCEPService } from "../../services/viacep.service";
@@ -86,6 +86,8 @@ export class UsuarioshowPage {
     public navParams: NavParams,
     private viaCEPService: ViaCEPService,
     private usuarioService: UsuarioService,
+    public loadCtrl: LoadingController,
+    public alertCtrl: AlertController
   ) { }
 
   formSubmit() {   
@@ -124,6 +126,8 @@ export class UsuarioshowPage {
 
   getCarregarEndereco() {
     if (this.formTable.value.cep.length == 9) {
+      let loader = this.loadCtrl.create({content: 'Carregando...'});
+      loader.present();
       this.viaCEPService.GetEndereco(this.formTable.value.cep).then((end: any) => {
         this.enderecoCEP = end;
         this.formTable.get('logradouro').setValue(this.enderecoCEP.logradouro);
@@ -131,6 +135,14 @@ export class UsuarioshowPage {
         this.formTable.get('bairro').setValue(this.enderecoCEP.bairro);
         this.formTable.get('estado').setValue(this.enderecoCEP.uf);
         this.formTable.get('municipio').setValue(this.enderecoCEP.localidade);
+        loader.dismiss();
+      }).catch(err => {
+        loader.dismiss();
+        this.alertCtrl.create ({
+          title: 'Falha na conexão',
+          buttons: [{text: 'Entendi!'}],
+          subTitle: 'Não foi possível carregar os dados. Tente novamente.'
+        }).present();
       });
     }
   }
