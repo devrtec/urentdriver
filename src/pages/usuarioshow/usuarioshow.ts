@@ -4,12 +4,15 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuariovalidLibrary } from "../../library/usuariovalid.library";
 import { ViaCEPService } from "../../services/viacep.service";
 import { Usuario } from '../../models/usuario.model'
+import { Locador } from '../../models/locador.model'
 import { UsuarioService } from '../../services/usuario.service'
+import { LocadorService } from '../../services/locador.service'
+import { MotoristasearchPage } from "../motoristasearch/motoristasearch";
 
 @Component({
   selector: "page-usuarioshow",
   templateUrl: "usuarioshow.html",
-  providers: [UsuariovalidLibrary, UsuarioService]
+  providers: [UsuariovalidLibrary, UsuarioService, LocadorService]
 })
 export class UsuarioshowPage {
 
@@ -86,6 +89,7 @@ export class UsuarioshowPage {
     public navParams: NavParams,
     private viaCEPService: ViaCEPService,
     private usuarioService: UsuarioService,
+    private locadorService: LocadorService,
     public loadCtrl: LoadingController,
     public alertCtrl: AlertController
   ) { }
@@ -108,9 +112,25 @@ export class UsuarioshowPage {
       null,
       null
     )   
+
+    let locador: Locador = new Locador(
+      null,
+      this.formTable.value.id_user,
+      null,
+      null,      
+      null,
+      null,
+      null
+    )
+
     this.usuarioService.CreateUsuario(usuario)
-      .subscribe((_id) => {
-       console.log(_id);
+      .subscribe((_id) => {   
+       locador.id_user = _id; 
+       this.locadorService.CreateLocador(locador)
+       .subscribe((_id) => {
+        console.log(_id);
+        this.navCtrl.push(MotoristasearchPage);
+       })
       })
   }
 
