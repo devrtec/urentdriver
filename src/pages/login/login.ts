@@ -9,14 +9,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class LoginPage {
 
   public formTable: FormGroup = new FormGroup({
-    email: new FormControl(null, [
-      Validators.required  
-    ]),  
-    senha: new FormControl(null, [
-      Validators.required,
-      Validators.minLength(6),
-      Validators.maxLength(6)
-    ])
+    email: new FormControl(null, []),  
+    senha: new FormControl(null, [])
   });
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

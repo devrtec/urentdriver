@@ -1,10 +1,4 @@
-<ion-header>
-  <ion-navbar color="dark">
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
+<ion-content >
   <br />
   <br />
 
@@ -12,7 +6,8 @@
       <ion-col>
         <ion-list inset>
       <div class="ion-text-center">
-        <h1>URentDriver</h1>       
+          
+        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URentDriver</h1>       
       </div>
     </ion-list>
   </ion-col>
@@ -24,22 +19,21 @@
         <ion-list inset>
           <ion-item>
             <ion-input formControlName="email" type="email" placeholder="E-mail"></ion-input>
-          </ion-item>
-          <ion-label color="danger"
-            *ngIf="formTable.get('email').invalid && (formTable.get('email').dirty && formTable.get('email').errors)">
-            E-mail inválido</ion-label>
-
+          </ion-item>                  
           <ion-item>
             <ion-input formControlName="senha" type="password" placeholder="Senha"></ion-input>
-          </ion-item>
-          <ion-label color="danger"
-            *ngIf="formTable.get('senha').invalid && (formTable.get('senha').dirty && formTable.get('senha').errors)">
-            Senha deve conter 6 caracteres</ion-label>
+          </ion-item>         
 
+          <br />
+          <br />
           <br />
           <br />
 
           <button ion-button type="submit" block color="dark">Entrar</button>
+
+          <br />        
+
+          <button ion-button type="submit" block color="light">Visitar</button>
         </ion-list>
       </ion-col>
     </ion-row>
