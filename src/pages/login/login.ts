@@ -1,6 +1,7 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl} from "@angular/forms";
 
 @Component({
   selector: 'page-login',
@@ -17,6 +18,10 @@ export class LoginPage {
   }
 
   formSubmit() { 
+  }
+
+  openPageHomebtnOnClick() {
+    this.navCtrl.push(HomePage);
   }
 
   ionViewDidLoad() {
